@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Admin Dashboard">
+    <meta name="theme-color" content="#ffffff">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <link rel="icon" type="image/x-icon" href="Img/favicon.ico">
+    
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <a href="index.html">Home</a>
+            <a href="feed.html">Feed</a>
+            <a href="#" id="logoutBtn">Logout</a>
+            <!-- Admin Dashboard link will be added here by JavaScript for admin users -->
+        </nav>
+    </header>
+
+    <main class="admin-dashboard-main">
+        <div class="admin-dashboard-container">
+            <h1 class="admin-dashboard-title">Admin Dashboard</h1>
+
+            <section class="dashboard-section user-stats-section">
+                <h2>User Statistics</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Total Users</h3>
+                        <p id="totalUsers">Loading...</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Total Admins</h3>
+                        <p id="totalAdmins">Loading...</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Website Visits</h3>
+                        <p id="websiteVisits">Loading...</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Total Time Spent</h3>
+                        <p id="totalTimeSpent">Loading...</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="dashboard-section poll-responses-section">
+                <h2>Poll Responses</h2>
+                <div id="pollResponsesContainer" class="poll-responses-grid">
+                    <p>Loading poll responses...</p>
+                    <!-- Poll responses will be loaded here by JavaScript -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="main-footer">
+            <nav class="footer-nav">
+                <a href="index.html">Home</a>
+                <a href="#countdown">RSVP</a>
+                <a href="#faqs">FAQs</a>
+                <a href="#our-venue">Our Venue</a>
+                <a href="login.html">Login</a>
+                <a href="feed.html">Feed</a>
+            </nav>
+            <p class="footer-copy">&copy; 2024 The Wedding. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/auth.js"></script>
+    <script src="js/admin.js"></script> <!-- New script for admin dashboard logic -->
+</body>
+</html> 

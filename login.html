@@ -36,12 +36,12 @@
             <form id="loginForm" class="auth-form active">
                 <div class="form-group">
                     <label for="loginEmail">Email Address</label>
-                    <input type="email" id="loginEmail" name="email" required>
+                    <input type="email" id="loginEmail" name="email" required data-field="email">
                 </div>
                 <div class="form-group password-group">
                     <label for="loginPassword">Password</label>
                     <div class="password-input-container">
-                        <input type="password" id="loginPassword" name="password" required>
+                        <input type="password" id="loginPassword" name="password" required data-field="password">
                         <button type="button" class="toggle-password" aria-label="Toggle password visibility">
                             <span class="show-password">👁️</span>
                             <span class="hide-password">👁️‍🗨️</span>
@@ -53,13 +53,21 @@
 
             <form id="registerForm" class="auth-form">
                 <div class="form-group">
+                    <label for="registerFirstName">First Name</label>
+                    <input type="text" id="registerFirstName" name="firstName" required data-field="firstName">
+                </div>
+                <div class="form-group">
+                    <label for="registerLastName">Last Name</label>
+                    <input type="text" id="registerLastName" name="lastName" required data-field="lastName">
+                </div>
+                <div class="form-group">
                     <label for="registerEmail">Email Address</label>
-                    <input type="email" id="registerEmail" name="email" required>
+                    <input type="email" id="registerEmail" name="email" required data-field="email">
                 </div>
                 <div class="form-group password-group">
                     <label for="registerPassword">Password</label>
                     <div class="password-input-container">
-                        <input type="password" id="registerPassword" name="password" required>
+                        <input type="password" id="registerPassword" name="password" required data-field="password">
                         <button type="button" class="toggle-password" aria-label="Toggle password visibility">
                             <span class="show-password">👁️</span>
                             <span class="hide-password">👁️‍🗨️</span>

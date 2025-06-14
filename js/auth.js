@@ -29,6 +29,34 @@ document.addEventListener('DOMContentLoaded', () => {
     const registerForm = document.getElementById('registerForm');
     const authMessage = document.getElementById('authMessage');
 
+    // --- Validation Functions ---
+    function isValidEmail(email) {
+        // Basic regex for email format validation
+        return /^[\w.-]+@[\w.-]+\.\w+$/.test(email);
+    }
+
+    function isValidPassword(password) {
+        // Min 8 chars, max 25 chars, at least one uppercase letter, at least one number
+        const minLength = 8;
+        const maxLength = 25;
+        const hasUpperCase = /[A-Z]/.test(password);
+        const hasNumber = /[0-9]/.test(password);
+
+        if (password.length < minLength) {
+            return 'Password must be at least 8 characters long.';
+        }
+        if (password.length > maxLength) {
+            return 'Password must be no more than 25 characters long.';
+        }
+        if (!hasUpperCase) {
+            return 'Password must contain at least one capital letter.';
+        }
+        if (!hasNumber) {
+            return 'Password must contain at least one number.';
+        }
+        return true; // Password is valid
+    }
+
     if (showLoginBtn && showRegisterBtn && loginForm && registerForm) {
         showLoginBtn.addEventListener('click', () => {
             loginForm.classList.add('active');
@@ -80,15 +108,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
         registerForm.addEventListener('submit', async (event) => {
             event.preventDefault();
-            const email = registerForm.elements.email.value;
+            const firstName = registerForm.elements.firstName.value.trim();
+            const lastName = registerForm.elements.lastName.value.trim();
+            const email = registerForm.elements.email.value.trim();
             const password = registerForm.elements.password.value;
-            // Role is defaulted to 'user' on the backend now
+
+            // Client-side validation
+            if (!isValidEmail(email)) {
+                authMessage.textContent = 'Please enter a valid email address.';
+                authMessage.style.color = 'red';
+                return;
+            }
+
+            const passwordValidationResult = isValidPassword(password);
+            if (passwordValidationResult !== true) {
+                authMessage.textContent = passwordValidationResult;
+                authMessage.style.color = 'red';
+                return;
+            }
 
             try {
                 const response = await fetch(`${API_BASE_URL}/register`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email, password })
+                    body: JSON.stringify({ firstName, lastName, email, password })
                 });
 
                 const data = await response.json();
@@ -121,6 +164,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const adminPostSection = document.getElementById('adminPostSection');
     const logoutBtn = document.getElementById('logoutBtn');
     const feedPostsContainer = document.getElementById('feedPosts'); // New: Container for dynamic posts
+
+    // Get admin dashboard links from both index.html and feed.html
+    const adminDashboardLinkIndex = document.getElementById('adminDashboardLink');
+    const adminDashboardLinkFeed = document.getElementById('adminDashboardLinkFeed');
 
     // Admin Post Type Switcher
     const showGeneralPostFormBtn = document.getElementById('showGeneralPostForm');
@@ -345,6 +392,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const isLoggedIn = localStorage.getItem('isLoggedIn');
         const token = localStorage.getItem('token'); // Get the stored token
 
+        // Show admin dashboard links if user is admin
+        if (userRole === 'admin') {
+            if (adminDashboardLinkIndex) adminDashboardLinkIndex.style.display = 'block';
+            if (adminDashboardLinkFeed) adminDashboardLinkFeed.style.display = 'block';
+        } else {
+            if (adminDashboardLinkIndex) adminDashboardLinkIndex.style.display = 'none';
+            if (adminDashboardLinkFeed) adminDashboardLinkFeed.style.display = 'none';
+        }
+
         // Check login status and role to display admin section and toggle buttons
         if (isLoggedIn === 'true' && userRole === 'admin') {
             adminPostSection.style.display = 'block';
@@ -398,7 +454,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             post.options.forEach((option, index) => {
                                 postContent += `
                                     <div class="poll-option-item">
-                                        <button class="poll-vote-btn" data-option-index="${index}">${option.text}</button>
+                                        ${userRole === 'admin' ? `<button class="poll-vote-btn" data-option-index="${index}">${option.text}</button>` : `<span>${option.text}</span>`}
                                         ${userRole === 'admin' ? `<span class="vote-count">(${option.votes} votes)</span>` : ''}
                                     </div>
                                 `;
@@ -407,6 +463,16 @@ document.addEventListener('DOMContentLoaded', () => {
                             if (userRole === 'admin') {
                                 postContent += `<button class="view-results-btn" data-post-id="${post.id}">View Poll Results</button>`;
                             }
+                        } else if (post.type === 'polled' && userRole !== 'admin') {
+                            // For non-admins, just show poll question and options without voting or counts
+                            postContent = `
+                                <h3>${post.question}</h3>
+                                <div class="poll-options" data-post-id="${post.id}">
+                            `;
+                            post.options.forEach((option) => {
+                                postContent += `<p>${option.text}</p>`; // Show options, but no vote button
+                            });
+                            postContent += `</div>`;
                         }
 
                         postCard.innerHTML = `
@@ -418,7 +484,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         if (userRole === 'admin') {
                             const deleteButton = document.createElement('button');
                             deleteButton.classList.add('delete-post-btn');
-                            deleteButton.innerHTML = '🗑️';
+                            deleteButton.innerHTML = 'Delete';
                             deleteButton.dataset.postId = post.id; // Store post ID
                             deleteButton.addEventListener('click', async () => {
                                 if (confirm('Are you sure you want to delete this post?')) {
@@ -446,8 +512,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         }
                         feedPostsContainer.appendChild(postCard);
 
-                        // Add event listeners for poll voting buttons
-                        if (post.type === 'polled') {
+                        // Add event listeners for poll voting buttons - only if user is NOT admin and post is polled
+                        if (post.type === 'polled' && userRole !== 'admin') {
                             postCard.querySelectorAll('.poll-vote-btn').forEach(button => {
                                 button.addEventListener('click', async (e) => {
                                     const postId = e.target.closest('.poll-options').dataset.postId;
@@ -474,34 +540,32 @@ document.addEventListener('DOMContentLoaded', () => {
                                     }
                                 });
                             });
-
+                        } else if (post.type === 'polled' && userRole === 'admin') { /* Moved from inside initial polled check */
                             // Add event listener for view results button (admin only)
-                            if (userRole === 'admin') {
-                                postCard.querySelector('.view-results-btn').addEventListener('click', async (e) => {
-                                    const postId = e.target.dataset.postId;
-                                    try {
-                                        const resultsResponse = await fetch(`${POSTS_API_URL}/${postId}/results`, {
-                                            method: 'GET',
-                                            headers: {
-                                                'x-auth-token': token
-                                            }
-                                        });
-                                        const resultsData = await resultsResponse.json();
-                                        if (resultsResponse.ok) {
-                                            let resultsText = `Poll Results for "${resultsData.question}"\nTotal Votes: ${resultsData.totalVotes}\n\n`;
-                                            resultsData.options.forEach(option => {
-                                                resultsText += `${option.text}: ${option.votes} votes\n`;
-                                            });
-                                            alert(resultsText);
-                                        } else {
-                                            alert(resultsData.message || 'Failed to fetch poll results.');
+                            postCard.querySelector('.view-results-btn').addEventListener('click', async (e) => {
+                                const postId = e.target.dataset.postId;
+                                try {
+                                    const resultsResponse = await fetch(`${POSTS_API_URL}/${postId}/results`, {
+                                        method: 'GET',
+                                        headers: {
+                                            'x-auth-token': token
                                         }
-                                    } catch (error) {
-                                        console.error('Error fetching poll results:', error);
-                                        alert('An error occurred while fetching poll results.');
+                                    });
+                                    const resultsData = await resultsResponse.json();
+                                    if (resultsResponse.ok) {
+                                        let resultsText = `Poll Results for "${resultsData.question}"\nTotal Votes: ${resultsData.totalVotes}\n\n`;
+                                        resultsData.options.forEach(option => {
+                                            resultsText += `${option.text}: ${option.votes} votes\n`;
+                                        });
+                                        alert(resultsText);
+                                    } else {
+                                        alert(resultsData.message || 'Failed to fetch poll results.');
                                     }
-                                });
-                            }
+                                } catch (error) {
+                                    console.error('Error fetching poll results:', error);
+                                    alert('An error occurred while fetching poll results.');
+                                }
+                            });
                         }
                     });
 

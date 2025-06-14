@@ -53,6 +53,23 @@ const savePosts = () => {
     fs.writeFileSync(POSTS_FILE, JSON.stringify(posts, null, 2));
 };
 
+// --- Validation Functions ---
+function isValidEmail(email) {
+    return /^[\w.-]+@[\w.-]+\.\w+$/.test(email);
+}
+
+function isValidPassword(password) {
+    const minLength = 8;
+    const maxLength = 25;
+    const hasUpperCase = /[A-Z]/.test(password);
+    const hasNumber = /[0-9]/.test(password);
+
+    if (password.length < minLength || password.length > maxLength || !hasUpperCase || !hasNumber) {
+        return false; // Does not meet password requirements
+    }
+    return true; // Password is valid
+}
+
 // Basic middleware to protect routes
 const auth = (req, res, next) => {
     const token = req.header('x-auth-token');
@@ -81,10 +98,19 @@ const authorizeAdmin = (req, res, next) => {
 
 // Register User
 app.post('/api/auth/register', async (req, res) => {
-    const { email, password } = req.body;
+    const { firstName, lastName, email, password } = req.body; // Destructure firstName and lastName
 
-    if (!email || !password) {
+    // Server-side validation
+    if (!firstName || !lastName || !email || !password) {
         return res.status(400).json({ message: 'Please enter all fields' });
+    }
+
+    if (!isValidEmail(email)) {
+        return res.status(400).json({ message: 'Please enter a valid email address.' });
+    }
+
+    if (!isValidPassword(password)) {
+        return res.status(400).json({ message: 'Password must be 8-25 characters long, contain at least one capital letter, and at least one number.' });
     }
 
     // Check for existing user
@@ -96,6 +122,8 @@ app.post('/api/auth/register', async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, 10);
         const newUser = {
             id: users.length > 0 ? Math.max(...users.map(u => u.id)) + 1 : 1, // Simple ID generation
+            firstName,
+            lastName,
             email,
             password: hashedPassword,
             role: 'user' // Default to user role
@@ -249,6 +277,26 @@ app.get('/api/posts/:id/results', auth, authorizeAdmin, (req, res) => {
 // Example protected route (can be used for testing auth)
 app.get('/api/protected', auth, (req, res) => {
     res.json({ message: `Welcome ${req.user.email}! You are a ${req.user.role}. This is a protected route.` });
+});
+
+// --- Admin Dashboard Data Routes ---
+
+// Get Dashboard Statistics (Admin Only)
+app.get('/api/admin/dashboard-stats', auth, authorizeAdmin, (req, res) => {
+    const totalUsers = users.length;
+    const totalAdmins = users.filter(user => user.role === 'admin').length;
+
+    // Placeholder data for website visits and total time spent
+    // Real-time tracking would require more complex implementation (e.g., database, session management)
+    const websiteVisits = 12345; // Example value
+    const totalTimeSpent = "500 hours"; // Example value
+
+    res.json({
+        totalUsers,
+        totalAdmins,
+        websiteVisits,
+        totalTimeSpent
+    });
 });
 
 // --- User Management Routes (Admin Only) ---

@@ -1,6 +1,8 @@
 [
   {
     "id": 1,
+    "firstName": "Matthew",
+    "lastName": "Davies",
     "email": "matthewdavies693@gmail.com",
     "password": "$2a$10$aEB6BNiEgs5l5MhRjxQNh.IBqcCAwI5kt929xBygzuRgVNacYxOyS",
     "role": "admin"
