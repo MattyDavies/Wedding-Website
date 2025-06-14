@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Login or Create Account">
+    <meta name="theme-color" content="#ffffff">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <link rel="icon" type="image/x-icon" href="Img/favicon.ico">
+    
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <title>Login / Create Account</title>
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <a href="index.html">Home</a>
+            <a href="login.html">Login</a>
+        </nav>
+    </header>
+
+    <main class="auth-main">
+        <div class="auth-container">
+            <h1 class="auth-title">Login / Create Account</h1>
+
+            <div class="auth-form-switcher">
+                <button id="showLogin" class="active">Login</button>
+                <button id="showRegister">Create Account</button>
+            </div>
+
+            <form id="loginForm" class="auth-form active">
+                <div class="form-group">
+                    <label for="loginEmail">Email Address</label>
+                    <input type="email" id="loginEmail" name="email" required>
+                </div>
+                <div class="form-group password-group">
+                    <label for="loginPassword">Password</label>
+                    <div class="password-input-container">
+                        <input type="password" id="loginPassword" name="password" required>
+                        <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+                            <span class="show-password">👁️</span>
+                            <span class="hide-password">👁️‍🗨️</span>
+                        </button>
+                    </div>
+                </div>
+                <button type="submit" class="submit-button">Login</button>
+            </form>
+
+            <form id="registerForm" class="auth-form">
+                <div class="form-group">
+                    <label for="registerEmail">Email Address</label>
+                    <input type="email" id="registerEmail" name="email" required>
+                </div>
+                <div class="form-group password-group">
+                    <label for="registerPassword">Password</label>
+                    <div class="password-input-container">
+                        <input type="password" id="registerPassword" name="password" required>
+                        <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+                            <span class="show-password">👁️</span>
+                            <span class="hide-password">👁️‍🗨️</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <button type="submit" class="submit-button">Create Account</button>
+            </form>
+            <p id="authMessage" class="auth-message"></p>
+        </div>
+    </main>
+
+    <script src="js/auth.js"></script>
+</body>
+</html> 

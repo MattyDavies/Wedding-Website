@@ -1,0 +1,1557 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lexend', sans-serif;
+    line-height: 1.6;
+}
+
+/* Hero section styles */
+.hero {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.landing-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Hero text styles */
+.hero-text {
+    position: absolute;
+    left: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    font-weight: 300;
+    text-transform: lowercase;
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+}
+
+.names {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+.name {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 2px;
+    margin: 1rem 0;
+    color: #f9cb9c;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.ampersand {
+    font-size: 3rem;
+    font-weight: 300;
+    margin: 0.3rem 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.name:last-child {
+    margin-left: 0;
+}
+
+.date {
+    font-size: 1.2rem;
+    font-weight: 300;
+    letter-spacing: 3px;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+/* Countdown section styles */
+.countdown-section {
+    padding: 4rem 2rem;
+    background-color: #f9cb9c;
+    text-align: center;
+}
+
+.countdown-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.countdown-title {
+    color: white;
+    font-size: 2rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.countdown-subgroup {
+    display: flex;
+    gap: 1.2rem;
+    align-items: flex-end;
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.countdown-number {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.countdown-label {
+    font-size: 1rem;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 0.5rem;
+}
+
+.countdown-item.small .countdown-number {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.countdown-item.small .countdown-label {
+    font-size: 0.8rem;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 0.2rem;
+}
+
+/* RSVP Button styles */
+.rsvp-button {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background-color: white;
+    color: #f9cb9c;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.rsvp-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* RSVP Form styles */
+.rsvp-section {
+    padding: 4rem 2rem;
+    background-color: #fff;
+}
+
+.rsvp-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.rsvp-title {
+    text-align: center;
+    color: #f9cb9c;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.rsvp-form {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Lexend', sans-serif;
+    font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #f9cb9c;
+}
+
+.response-group {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.response-option {
+    flex: 1;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    gap: 12px;
+}
+
+.radio-label:hover {
+    background-color: rgba(249, 203, 156, 0.1);
+}
+
+input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 24px;
+    height: 24px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    margin: 0;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+input[type="radio"]:checked {
+    background-color: #f9cb9c;
+    border-color: #f9cb9c;
+}
+
+input[type="radio"]:checked::after {
+    content: '✓';
+    position: absolute;
+    color: white;
+    font-size: 16px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+input[type="radio"][value="accept"]:checked {
+    background-color: #4CAF50;
+    border-color: #4CAF50;
+}
+
+input[type="radio"][value="decline"]:checked {
+    background-color: #f44336;
+    border-color: #f44336;
+}
+
+.submit-button {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    background-color: #f9cb9c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #f7b77c;
+}
+
+.back-link {
+    display: inline-block;
+    padding: 1rem;
+    color: #f9cb9c;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .hero {
+        height: 70vh;
+    }
+    
+    .hero-text {
+        left: 5%;
+    }
+    
+    .name {
+        font-size: 3rem;
+        margin: 0.8rem 0;
+    }
+    
+    .ampersand {
+        font-size: 2.5rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .date {
+        font-size: 1rem;
+        margin-top: 0.8rem;
+    }
+
+    .countdown-section {
+        padding: 3rem 1rem;
+    }
+
+    .countdown-title {
+        font-size: 1.8rem;
+    }
+
+    .countdown-timer {
+        gap: 1.5rem;
+    }
+
+    .countdown-subgroup {
+        gap: 0.8rem;
+    }
+
+    .countdown-item.small .countdown-number {
+        font-size: 1.1rem;
+    }
+
+    .rsvp-section {
+        padding: 3rem 1rem;
+    }
+
+    .rsvp-title {
+        font-size: 2rem;
+    }
+
+    .response-group {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    input[type="radio"] {
+        width: 20px;
+        height: 20px;
+    }
+
+    input[type="radio"]:checked::after {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .hero {
+        height: 60vh;
+    }
+    
+    .name {
+        font-size: 2.5rem;
+        margin: 0.6rem 0;
+    }
+    
+    .ampersand {
+        font-size: 2rem;
+    }
+    
+    .subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .date {
+        font-size: 0.9rem;
+        margin-top: 0.6rem;
+    }
+
+    .countdown-section {
+        padding: 2rem 1rem;
+    }
+
+    .countdown-title {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .countdown-timer {
+        gap: 1rem;
+    }
+
+    .countdown-subgroup {
+        gap: 0.5rem;
+    }
+
+    .countdown-item.small .countdown-number {
+        font-size: 0.95rem;
+    }
+
+    .countdown-label {
+        font-size: 0.8rem;
+    }
+
+    .rsvp-button {
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+    }
+
+    .rsvp-section {
+        padding: 2rem 1rem;
+    }
+
+    .rsvp-title {
+        font-size: 1.8rem;
+    }
+
+    .rsvp-form {
+        padding: 1.5rem;
+    }
+
+    input[type="radio"] {
+        width: 18px;
+        height: 18px;
+    }
+
+    input[type="radio"]:checked::after {
+        font-size: 12px;
+    }
+}
+
+.venue-section {
+    position: relative;
+    width: 100%;
+    min-height: 600px;
+    background: url('../Img/Beamish-Hall-Marriage-Venue.jpg') center center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.venue-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45); /* Faded effect */
+    z-index: 1;
+}
+
+.venue-content {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    text-align: center;
+    padding: 3rem 2rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.venue-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+    color: #f9cb9c;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+}
+
+.venue-description {
+    font-size: 1.3rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: #fff;
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.3);
+}
+
+@media screen and (max-width: 768px) {
+    .venue-section {
+        min-height: 400px;
+        height: unset;
+        padding: 0;
+    }
+    .venue-slider {
+        max-width: 95vw;
+        height: auto;
+        display: flex;
+        position: relative;
+    }
+    .venue-panel {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.98);
+        width: 100%;
+        max-width: 700px;
+        margin: 0 auto;
+        box-sizing: border-box;
+        opacity: 0;
+        pointer-events: none;
+        display: block;
+    }
+    .venue-panel.active {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+        pointer-events: auto;
+        z-index: 3;
+    }
+    .venue-panel {
+        padding: 2rem 1rem 2.5rem 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .venue-section {
+        min-height: 250px;
+        height: unset;
+        padding: 0;
+    }
+    .venue-panel {
+        padding: 1.2rem 0.5rem 2rem 0.5rem;
+    }
+    .venue-arrow {
+        width: 38px;
+        height: 38px;
+        font-size: 1.3rem;
+    }
+}
+
+.venue-slider {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    z-index: 2;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.venue-panel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    max-width: 700px;
+    transform: translate(-50%, -50%) scale(0.98);
+    opacity: 0;
+    transition: opacity 0.5s, transform 0.5s;
+    background: rgba(0,0,0,0.25);
+    border-radius: 16px;
+    padding: 3rem 2rem 2.5rem 2rem;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+    pointer-events: none;
+}
+
+.venue-panel.active {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    pointer-events: auto;
+    z-index: 3;
+}
+
+.venue-arrow {
+    background: #f9cb9c;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin: 2rem auto 0 auto;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    transition: background 0.2s, transform 0.2s;
+}
+.venue-arrow:hover {
+    background: #f7b77c;
+    transform: scale(1.08);
+}
+.venue-arrow-back {
+    background: #fff;
+    color: #f9cb9c;
+    border: 2px solid #f9cb9c;
+}
+.venue-arrow-back:hover {
+    background: #f9cb9c;
+    color: #fff;
+}
+.venue-map {
+    margin: 2rem 0 0 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+@media screen and (max-width: 768px) {
+    .venue-slider {
+        max-width: 95vw;
+    }
+    .venue-panel {
+        padding: 2rem 1rem 2.5rem 1rem;
+    }
+}
+@media screen and (max-width: 480px) {
+    .venue-panel {
+        padding: 1.2rem 0.5rem 2rem 0.5rem;
+    }
+    .venue-arrow {
+        width: 38px;
+        height: 38px;
+        font-size: 1.3rem;
+    }
+}
+@media screen and (max-width: 900px) {
+    .venue-slider {
+        display: block;
+        position: static;
+        height: auto;
+        min-height: unset;
+    }
+    .venue-panel {
+        position: relative !important;
+        top: unset !important;
+        left: unset !important;
+        transform: none !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        display: none;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 700px;
+        box-sizing: border-box;
+    }
+    .venue-panel.active {
+        display: block;
+        z-index: 3;
+    }
+}
+
+.venue-faq-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+.faq-item {
+    padding: 1.5rem 1.5rem;
+    color: #fff;
+    font-size: 1.1rem;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+.faq-item strong {
+    display: block;
+    font-size: 1.15em;
+    margin-bottom: 0.7rem;
+    font-weight: 700;
+}
+.faq-item em {
+    font-style: italic;
+    color: #fff;
+    font-size: 1em;
+}
+@media screen and (max-width: 768px) {
+    .venue-faq-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+    .faq-item {
+        padding: 1rem 0.7rem;
+        font-size: 1rem;
+        min-height: 100px;
+    }
+}
+
+.faq-section {
+    background: #f9cb9c;
+    color: #fff;
+    padding: 4rem 2rem;
+    border-top: 1px solid #f3e6d6;
+}
+
+.faq-container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.faq-title {
+    text-align: center;
+    color: #fff;
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.faq-list {
+    min-height: 80px;
+    color: #fff;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    justify-items: center;
+    align-items: center;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.faq-card {
+    display: block;
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: 500;
+    padding: 0.8rem 0.5rem;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    text-align: center;
+    min-width: 120px;
+    width: 100%;
+    cursor: pointer;
+}
+.faq-card:hover, .faq-card:focus {
+    background: rgba(255,255,255,0.22);
+    color: #fff;
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+}
+@media screen and (max-width: 768px) {
+    .faq-list {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        max-width: 350px;
+    }
+    .faq-card {
+        font-size: 1.05rem;
+        min-width: unset;
+        padding: 0.8rem 0.5rem;
+    }
+}
+@media screen and (max-width: 480px) {
+    .faq-list {
+        flex-direction: column;
+        gap: 0.7rem;
+    }
+    .faq-card {
+        width: 100%;
+        min-width: unset;
+        font-size: 1rem;
+        padding: 1rem 0.5rem;
+    }
+}
+
+.main-nav {
+    width: 100%;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+    padding: 1.2rem 0 1.2rem 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.main-nav a {
+    color: #f9cb9c;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    transition: color 0.2s;
+    padding: 0.2rem 0.7rem;
+    border-radius: 6px;
+}
+.main-nav a:hover, .main-nav a:focus {
+    background: #f9cb9c;
+    color: #fff;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.main-footer {
+    width: 100%;
+    background: #fff;
+    padding: 1.2rem 0 0.5rem 0;
+    text-align: center;
+    border-top: 1px solid #f3e6d6;
+    margin-top: 2rem;
+    position: relative;
+    z-index: 10;
+}
+.footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 0.5rem;
+}
+.footer-nav a {
+    color: #f9cb9c;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    transition: color 0.2s;
+    padding: 0.6rem 0.9rem;
+    border-radius: 6px;
+    display: inline-block;
+}
+.footer-nav a:hover, .footer-nav a:focus {
+    background: #f9cb9c;
+    color: #fff;
+}
+.footer-copy {
+    color: #bfa77a;
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+}
+@media screen and (max-width: 768px) {
+    .main-nav, .footer-nav {
+        gap: 1.1rem;
+    }
+    .main-nav a, .footer-nav a {
+        font-size: 0.98rem;
+        padding: 0.5rem 0.7rem;
+    }
+    .footer-nav {
+        flex-wrap: wrap;
+        gap: 0.7rem;
+    }
+}
+@media screen and (max-width: 480px) {
+    .main-nav, .footer-nav {
+        gap: 0.5rem;
+    }
+    .main-nav {
+        padding: 0.7rem 0 0.7rem 0;
+    }
+    .main-footer {
+        padding: 0.7rem 0 0.3rem 0;
+    }
+    .footer-nav a {
+        font-size: 0.95rem;
+        padding: 0.5rem 0.5rem;
+    }
+}
+
+/* Login and Register Page Styles */
+.auth-main, .feed-main {
+    padding: 4rem 2rem;
+    background-color: #f3e6d6;
+    min-height: calc(100vh - 120px); /* Adjust based on header/footer height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.admin-buttons-container {
+    position: fixed;
+    top: 80px; /* Adjust based on navbar height */
+    right: 20px;
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 10px; /* Space between buttons */
+    z-index: 101;
+}
+
+.auth-container, .feed-container {
+    max-width: 500px;
+    width: 100%;
+    background-color: #fff;
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.auth-title, .feed-title {
+    color: #f9cb9c;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+.auth-form-switcher {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.auth-form-switcher button {
+    flex: 1;
+    padding: 0.8rem 1.5rem;
+    border: 1px solid #f9cb9c;
+    background-color: #fff;
+    color: #f9cb9c;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.auth-form-switcher button:first-child {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.auth-form-switcher button:last-child {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.auth-form-switcher button.active {
+    background-color: #f9cb9c;
+    color: #fff;
+}
+
+.auth-form {
+    display: none; /* Hidden by default, shown by JS */
+}
+
+.auth-form.active {
+    display: block;
+}
+
+/* Feed Page Styles */
+.feed-container {
+    max-width: 700px;
+}
+
+.admin-section {
+    background-color: #fdf5ed;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    text-align: left;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: static; /* Remove relative positioning as buttons are moved */
+}
+.admin-section h2 {
+    color: #f9cb9c;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.post-form {
+    margin-bottom: 2rem;
+}
+
+.feed-posts {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.post-card {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    text-align: left;
+    position: relative; /* Added for delete button positioning */
+}
+
+.post-card h3 {
+    color: #f9cb9c;
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+}
+
+.post-card p {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.post-meta {
+    font-size: 0.9rem;
+    color: #888;
+    display: block;
+    text-align: right;
+}
+
+.form-post .user-form {
+    margin-top: 1rem;
+    border-top: 1px solid #eee;
+    padding-top: 1rem;
+}
+
+/* Delete Post Button Styles */
+.delete-post-btn {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #999; /* Neutral color, will change on hover */
+    transition: color 0.2s ease;
+    display: none; /* Hidden by default, shown by JS for admins */
+    z-index: 5; /* Ensure it's above post content */
+    padding: 5px; /* Add some padding for easier clicking */
+}
+
+.delete-post-btn:hover {
+    color: #f44336; /* Red on hover */
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .auth-main, .feed-main {
+        padding: 3rem 1rem;
+    }
+    .auth-container, .feed-container {
+        padding: 1.5rem;
+    }
+    .auth-title, .feed-title {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+    .auth-form-switcher button {
+        font-size: 1rem;
+        padding: 0.7rem 1rem;
+    }
+    .admin-section h2 {
+        font-size: 1.5rem;
+    }
+    .post-card h3 {
+        font-size: 1.3rem;
+    }
+    .admin-buttons-container {
+        top: 70px; /* Adjust for smaller screens */
+        right: 15px;
+    }
+    .delete-post-btn {
+        top: 8px;
+        left: 8px;
+        font-size: 1.3rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .auth-main, .feed-main {
+        padding: 2rem 0.5rem;
+    }
+    .auth-container, .feed-container {
+        padding: 1rem;
+    }
+    .auth-title, .feed-title {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+    .auth-form-switcher button {
+        font-size: 0.9rem;
+        padding: 0.6rem 0.8rem;
+    }
+    .admin-section {
+        padding: 1rem;
+    }
+    .admin-section h2 {
+        font-size: 1.3rem;
+    }
+    .post-card {
+        padding: 1rem;
+    }
+    .post-card h3 {
+        font-size: 1.1rem;
+    }
+    .post-card p {
+        font-size: 0.9rem;
+    }
+    .admin-buttons-container {
+        top: 60px; /* Adjust for even smaller screens */
+        right: 10px;
+    }
+    .delete-post-btn {
+        top: 5px;
+        left: 5px;
+        font-size: 1.1rem;
+    }
+}
+
+/* About Us Section Styles */
+.about-us-section {
+    padding: 4rem 2rem;
+    background-color: #fff;
+    text-align: center;
+}
+
+.about-us-container {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.about-us-title {
+    color: #f9cb9c;
+    font-size: 2.5rem;
+    margin-bottom: 2.5rem;
+    font-weight: 700;
+}
+
+.about-us-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 3rem;
+    text-align: left;
+}
+
+.about-us-image {
+    flex: 1;
+    min-width: 250px;
+}
+
+.responsive-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.about-us-text {
+    flex: 2;
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.about-us-text p {
+    margin-bottom: 1rem;
+}
+
+/* Responsive adjustments for About Us */
+@media screen and (max-width: 768px) {
+    .about-us-section {
+        padding: 3rem 1.5rem;
+    }
+    .about-us-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    .about-us-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .about-us-image {
+        min-width: unset;
+        width: 80%; /* Adjust as needed */
+        margin-bottom: 1rem;
+    }
+    .about-us-text {
+        font-size: 1rem;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .about-us-section {
+        padding: 2rem 1rem;
+    }
+    .about-us-title {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+    .about-us-content {
+        gap: 1.5rem;
+    }
+    .about-us-image {
+        width: 95%;
+    }
+    .about-us-text {
+        font-size: 0.95rem;
+    }
+}
+
+/* Password Toggle Styles */
+.password-group {
+    position: relative;
+}
+
+.password-input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-input-container input {
+    width: 100%;
+    padding-right: 40px; /* Make room for the toggle button */
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    transition: color 0.3s ease;
+}
+
+.toggle-password:hover {
+    color: #333;
+}
+
+.toggle-password .hide-password {
+    display: none;
+}
+
+.toggle-password.showing .show-password {
+    display: none;
+}
+
+.toggle-password.showing .hide-password {
+    display: inline;
+}
+
+/* Admin Post Type Switcher */
+.post-type-switcher {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.post-type-switcher button {
+    flex: 1;
+    padding: 0.8rem 1.5rem;
+    border: 1px solid #f9cb9c;
+    background-color: #fff;
+    color: #f9cb9c;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.post-type-switcher button:first-child {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.post-type-switcher button:last-child {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.post-type-switcher button.active {
+    background-color: #f9cb9c;
+    color: #fff;
+}
+
+.admin-post-form {
+    display: none;
+}
+
+.admin-post-form.active {
+    display: block;
+}
+
+/* New styles for admin forms toggle */
+.admin-section {
+    /* position: relative; Removed as buttons are moved */
+}
+
+.toggle-admin-forms-btn {
+    /* position: absolute; Removed, now relative to .admin-buttons-container */
+    /* top: 15px; Removed */
+    /* right: 15px; Removed */
+    background-color: #f9cb9c;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    /* z-index: 10; No longer needed here, handled by .admin-buttons-container */
+}
+
+.toggle-admin-forms-btn:hover {
+    background-color: #f7b77c;
+    transform: rotate(90deg);
+}
+
+.admin-forms-container {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+}
+
+.admin-forms-container.active {
+    max-height: 1000px; /* Large enough to accommodate forms, adjust if needed */
+    transition: max-height 0.7s ease-in;
+}
+
+/* Adjust margin-bottom for admin-section if forms are hidden */
+.admin-section:not(.forms-active) {
+    margin-bottom: 0;
+}
+
+/* Styles for the new settings button */
+.toggle-admin-forms-btn.settings-btn {
+    /* top: 65px; Removed */
+    background-color: #f9cb9c; /* Or a slightly different color if preferred */
+    font-size: 1.5rem;
+    transform: none; /* Reset transform from general toggle button styles */
+}
+
+.toggle-admin-forms-btn.settings-btn:hover {
+    background-color: #f7b77c;
+    transform: rotate(0deg); /* Prevent rotation on hover for settings icon */
+}
+
+/* Styles for the group settings container */
+.group-settings-container {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+    background-color: #fdf5ed; /* Lighter background similar to admin section */
+    padding: 0 2rem; /* Initial padding, will be adjusted when active */
+    border-radius: 10px;
+    margin-top: 1rem; /* Space from the top if visible */
+    text-align: left;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.group-settings-container.active {
+    max-height: 1000px; /* Adjust as needed for content */
+    transition: max-height 0.7s ease-in;
+    padding: 2rem; /* Full padding when active */
+    margin-bottom: 2rem; /* Space below when active */
+}
+
+.group-settings-container h2 {
+    color: #f9cb9c;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.group-settings-container p {
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Responsive adjustments for new buttons/containers */
+@media screen and (max-width: 768px) {
+    .toggle-admin-forms-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 1.5rem;
+    }
+    .toggle-admin-forms-btn.settings-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 1.2rem;
+    }
+    .group-settings-container.active {
+        padding: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .toggle-admin-forms-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 1.3rem;
+    }
+    .toggle-admin-forms-btn.settings-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 1rem;
+    }
+    .group-settings-container.active {
+        padding: 1rem;
+    }
+}
+
+/* Styles for User Role Management in Group Settings */
+#userSelect {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Lexend', sans-serif;
+    font-size: 1rem;
+    margin-bottom: 1rem; /* Space below the select dropdown */
+    background-color: white;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23f9cb9c'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.8rem center;
+    background-size: 1.2em;
+}
+
+#userSelect:focus {
+    outline: none;
+    border-color: #f9cb9c;
+    box-shadow: 0 0 0 2px rgba(249, 203, 156, 0.5);
+}
+
+.role-options {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    justify-content: center; /* Center the radio buttons */
+}
+
+.role-options input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #f9cb9c;
+    border-radius: 50%; /* Make them circular */
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.2s, border-color 0.2s;
+    position: relative;
+    top: 3px;
+}
+
+.role-options input[type="radio"]:checked {
+    background-color: #f9cb9c;
+    border-color: #f9cb9c;
+}
+
+.role-options input[type="radio"]:checked::after {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.role-options label {
+    cursor: pointer;
+    color: #555;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.auth-message {
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-align: center;
+    padding: 0.5rem;
+    border-radius: 5px;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.auth-message[style*="color: green"] {
+    background-color: #e6ffe6; /* Light green for success */
+    border: 1px solid #4CAF50;
+    color: #4CAF50 !important; /* Ensure color is applied */
+}
+
+.auth-message[style*="color: red"] {
+    background-color: #ffe6e6; /* Light red for error */
+    border: 1px solid #f44336;
+    color: #f44336 !important; /* Ensure color is applied */
+}
+
+@media screen and (max-width: 480px) {
+    .role-options {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+    }
+} 

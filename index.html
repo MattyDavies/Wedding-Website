@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wedding Website">
+    <meta name="theme-color" content="#ffffff">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="Img/favicon.ico">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <title>Wedding Website</title>
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <a href="login.html">Login</a>
+            <a href="#hero">Home</a>
+            <a href="#countdown">Countdown</a>
+            <a href="#venue">Venue</a>
+            <a href="#faq">FAQ</a>
+            <a href="#rsvp">RSVP</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="hero">
+            <div class="hero-image">
+                <img src="Img/landing.jpg" alt="Wedding Celebration" class="landing-image">
+            </div>
+            <div class="hero-text">
+                <h2 class="subtitle">celebrate our wedding</h2>
+                <div class="names">
+                    <h1 class="name">MATTHEW</h1>
+                    <h1 class="ampersand">&</h1>
+                    <h1 class="name">LESTER</h1>
+                </div>
+                <div class="date">22.07.2028</div>
+            </div>
+        </section>
+
+        <section class="countdown-section" id="countdown">
+            <div class="countdown-container">
+                <h2 class="countdown-title">Counting Down to Our Special Day</h2>
+                <div class="countdown-timer">
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="years">00</span>
+                        <span class="countdown-label">Years</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="months">00</span>
+                        <span class="countdown-label">Months</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="days">00</span>
+                        <span class="countdown-label">Days</span>
+                    </div>
+                    <div class="countdown-subgroup">
+                        <div class="countdown-item small">
+                            <span class="countdown-number" id="hours">00</span>
+                            <span class="countdown-label">Hours</span>
+                        </div>
+                        <div class="countdown-item small">
+                            <span class="countdown-number" id="minutes">00</span>
+                            <span class="countdown-label">Minutes</span>
+                        </div>
+                        <div class="countdown-item small">
+                            <span class="countdown-number" id="seconds">00</span>
+                            <span class="countdown-label">Seconds</span>
+                        </div>
+                    </div>
+                </div>
+                <a href="rsvp.html" class="rsvp-button">RSVP Now</a>
+            </div>
+        </section>
+
+        <section class="venue-section" id="venue">
+            <div class="venue-overlay"></div>
+            <div class="venue-slider">
+                <div class="venue-panel venue-panel-main active">
+                    <h2 class="venue-title">Our Venue</h2>
+                    <p class="venue-description">
+                        We are delighted to celebrate our special day at the beautiful Beamish Hall. Surrounded by stunning grounds and timeless elegance, it's the perfect place to make unforgettable memories with our loved ones.
+                    </p>
+                    <button class="venue-arrow" id="venueNext" aria-label="Next">
+                        <span>&#8594;</span>
+                    </button>
+                </div>
+                <div class="venue-panel venue-panel-location">
+                    <h2 class="venue-title">Venue Location</h2>
+                    <p class="venue-description">
+                        Beamish Hall, Coppy Ln, Beamish, Stanley DH9 0YB, United Kingdom
+                    </p>
+                    <div class="venue-map">
+                        <iframe src="https://www.google.com/maps?q=Beamish+Hall,+Coppy+Ln,+Beamish,+Stanley+DH9+0YB,+United+Kingdom&output=embed" width="100%" height="220" style="border:0; border-radius:10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <button class="venue-arrow venue-arrow-back" id="venuePrev" aria-label="Back">
+                        <span>&#8592;</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section" id="faq">
+            <div class="faq-container">
+                <h2 class="faq-title">Frequently Asked Questions</h2>
+                <div class="faq-list">
+                    <a href="faq-venue.html" class="faq-card">Venue</a>
+                    <a href="faq-timings.html" class="faq-card">Timings</a>
+                    <a href="faq-dresscode.html" class="faq-card">Dress Code</a>
+                    <a href="faq-other.html" class="faq-card">Other</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="rsvp" id="rsvp">
+            <!-- RSVP form will go here -->
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <nav class="footer-nav">
+            <a href="login.html">Login</a>
+            <a href="#hero">Home</a>
+            <a href="#countdown">Countdown</a>
+            <a href="#venue">Venue</a>
+            <a href="#faq">FAQ</a>
+            <a href="#rsvp">RSVP</a>
+        </nav>
+        <div class="footer-copy">&copy; 2024 Matthew & Lester's Wedding</div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html> 

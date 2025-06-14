@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wedding Feed">
+    <meta name="theme-color" content="#ffffff">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <link rel="icon" type="image/x-icon" href="Img/favicon.ico">
+    
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <title>The Wedding Feed</title>
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <a href="index.html">Home</a>
+            <a href="login.html">Login</a>
+            <a href="#" id="logoutBtn">Logout</a>
+        </nav>
+    </header>
+
+    <main class="feed-main">
+        <div class="admin-buttons-container">
+            <button id="toggleAdminFormsBtn" class="toggle-admin-forms-btn">+</button>
+            <button id="toggleGroupSettingsBtn" class="toggle-admin-forms-btn settings-btn">⚙️</button>
+        </div>
+        <div class="feed-container">
+            <h1 class="feed-title">The Wedding Feed</h1>
+
+            <!-- Admin Post Section (conditionally visible) -->
+            <div id="adminPostSection" class="admin-section">
+                <div id="adminFormsContainer" class="admin-forms-container">
+                    <div class="post-type-switcher">
+                        <button id="showGeneralPostForm" class="active">Create General Post</button>
+                        <button id="showPolledPostForm">Create Polled Post</button>
+                    </div>
+
+                    <form id="generalPostForm" class="admin-post-form active">
+                        <h2>Create General Post</h2>
+                        <div class="form-group">
+                            <label for="generalPostTitle">Title</label>
+                            <input type="text" id="generalPostTitle" name="generalPostTitle" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="generalPostContent">Text Content</label>
+                            <textarea id="generalPostContent" name="generalPostContent" rows="5" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="generalPostImage">Image URL (Optional)</label>
+                            <input type="url" id="generalPostImage" name="generalPostImage">
+                        </div>
+                        <div class="form-group">
+                            <label for="generalPostVideo">Video URL (Optional)</label>
+                            <input type="url" id="generalPostVideo" name="generalPostVideo">
+                        </div>
+                        <button type="submit" class="submit-button">Publish General Post</button>
+                    </form>
+
+                    <form id="polledPostForm" class="admin-post-form">
+                        <h2>Create Polled Post</h2>
+                        <div class="form-group">
+                            <label for="pollQuestion">Poll Question</label>
+                            <input type="text" id="pollQuestion" name="pollQuestion" required>
+                        </div>
+                        <div class="form-group" id="pollOptionsContainer">
+                            <label>Poll Options</label>
+                            <input type="text" class="poll-option-input" placeholder="Option 1" required>
+                            <input type="text" class="poll-option-input" placeholder="Option 2" required>
+                        </div>
+                        <button type="button" id="addPollOptionBtn" class="submit-button">Add Option</button>
+                        <button type="submit" class="submit-button" style="margin-top: 1rem;">Publish Polled Post</button>
+                    </form>
+                </div>
+                <div id="groupSettingsContainer" class="group-settings-container">
+                    <h2>Access Group Settings</h2>
+                    <div class="form-group">
+                        <label for="userSelect">Select User</label>
+                        <select id="userSelect" name="userSelect">
+                            <option value="">-- Select a user --</option>
+                            <!-- Users will be populated here by JavaScript -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Assign Role</label>
+                        <div class="role-options">
+                            <input type="radio" id="roleUser" name="userRoleAssign" value="user">
+                            <label for="roleUser">User</label>
+                            <input type="radio" id="roleAdmin" name="userRoleAssign" value="admin">
+                            <label for="roleAdmin">Admin</label>
+                        </div>
+                    </div>
+                    <button type="button" id="updateRoleBtn" class="submit-button">Update Role</button>
+                    <p id="roleUpdateMessage" class="auth-message"></p>
+                </div>
+            </div>
+
+            <!-- Feed Posts -->
+            <div id="feedPosts" class="feed-posts">
+                <div class="post-card">
+                    <button class="delete-post-btn" data-post-id="INSERT_POST_ID_HERE">🗑️</button>
+                    <h3>Welcome to the Feed!</h3>
+                    <p>This is a placeholder post. Admin users will be able to share updates and create forms here.</p>
+                    <span class="post-meta">Posted by Admin on <span class="post-date">2024-07-20 10:00 AM</span></span>
+                </div>
+                
+                <div class="post-card">
+                    <button class="delete-post-btn" data-post-id="INSERT_POST_ID_HERE">🗑️</button>
+                    <h3>Wedding Day Tips</h3>
+                    <p>Just a reminder to check the dress code and venue details on the main website. We can't wait to celebrate with you!</p>
+                    <span class="post-meta">Posted by Admin on <span class="post-date">2024-07-18 03:30 PM</span></span>
+                </div>
+
+                <!-- Placeholder for a user form post -->
+                <div class="post-card form-post">
+                    <button class="delete-post-btn" data-post-id="INSERT_POST_ID_HERE">🗑️</button>
+                    <h3>Food Preferences Survey</h3>
+                    <p>Please let us know your dietary restrictions and food preferences by filling out this quick survey!</p>
+                    <form class="user-form">
+                        <div class="form-group">
+                            <label for="dietary">Dietary Restrictions:</label>
+                            <input type="text" id="dietary" name="dietary">
+                        </div>
+                        <div class="form-group">
+                            <label for="allergies">Allergies:</label>
+                            <input type="text" id="allergies" name="allergies">
+                        </div>
+                        <button type="submit" class="submit-button">Submit Preferences</button>
+                    </form>
+                    <span class="post-meta">Posted by Admin on <span class="post-date">2024-07-15 09:00 AM</span></span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/auth.js"></script>
+</body>
+</html> 

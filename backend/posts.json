@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "date": "2025-06-14T00:15:34.267Z",
+    "type": "general",
+    "title": "test post 1",
+    "content": "this post is a test to check the feed"
+  },
+  {
+    "id": 2,
+    "date": "2025-06-14T00:16:03.559Z",
+    "type": "polled",
+    "title": "poll test 1",
+    "question": "poll test 1",
+    "options": [
+      {
+        "text": "option a",
+        "votes": 1
+      },
+      {
+        "text": "option b",
+        "votes": 2
+      },
+      {
+        "text": "add option c",
+        "votes": 0
+      }
+    ],
+    "totalVotes": 3
+  },
+  {
+    "id": 3,
+    "date": "2025-06-14T00:26:24.949Z",
+    "type": "general",
+    "title": "test",
+    "content": "test 2"
+  }
+]
