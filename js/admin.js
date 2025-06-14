@@ -1,7 +1,20 @@
 // js/admin.js
 
 document.addEventListener('DOMContentLoaded', async () => {
-    const API_BASE_URL = 'http://localhost:3000/api';
+    // API Configuration
+    const API_CONFIG = {
+        development: {
+            baseUrl: 'http://localhost:3000/api'
+        },
+        production: {
+            baseUrl: 'https://your-backend-domain.com/api' // We'll update this when you have your backend domain
+        }
+    };
+
+    // Determine environment
+    const isDevelopment = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+    const API_BASE_URL = isDevelopment ? API_CONFIG.development.baseUrl : API_CONFIG.production.baseUrl;
+
     const token = localStorage.getItem('token');
     const userRole = localStorage.getItem('userRole');
 

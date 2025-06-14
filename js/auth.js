@@ -1,10 +1,24 @@
 // js/auth.js
 
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Backend API Base URL ---
-    const API_BASE_URL = 'http://localhost:3000/api/auth';
-    const POSTS_API_URL = 'http://localhost:3000/api/posts'; // New URL for posts
-    const FEED_API_URL = 'http://localhost:3000/api/feed'; // Existing URL for fetching feed
+    // API Configuration
+    const API_CONFIG = {
+        development: {
+            baseUrl: 'http://localhost:3000/api'
+        },
+        production: {
+            baseUrl: 'https://your-backend-domain.com/api' // We'll update this when you have your backend domain
+        }
+    };
+
+    // Determine environment
+    const isDevelopment = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+    const API_BASE_URL = isDevelopment ? API_CONFIG.development.baseUrl : API_CONFIG.production.baseUrl;
+
+    // Update API URLs
+    const AUTH_API_URL = `${API_BASE_URL}/auth`;
+    const POSTS_API_URL = `${API_BASE_URL}/posts`;
+    const FEED_API_URL = `${API_BASE_URL}/feed`;
 
     // --- Password Toggle Functionality ---
     const togglePasswordButtons = document.querySelectorAll('.toggle-password');
@@ -80,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const password = loginForm.elements.password.value;
 
             try {
-                const response = await fetch(`${API_BASE_URL}/login`, {
+                const response = await fetch(`${AUTH_API_URL}/login`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ email, password })
@@ -128,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             try {
-                const response = await fetch(`${API_BASE_URL}/register`, {
+                const response = await fetch(`${AUTH_API_URL}/register`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ firstName, lastName, email, password })
@@ -206,7 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         try {
-            const response = await fetch('http://localhost:3000/api/admin/users', {
+            const response = await fetch(`${AUTH_API_URL}/admin/users`, {
                 method: 'GET',
                 headers: {
                     'x-auth-token': token
@@ -285,7 +299,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             try {
-                const response = await fetch(`http://localhost:3000/api/admin/users/${selectedUserId}/role`, {
+                const response = await fetch(`${AUTH_API_URL}/admin/users/${selectedUserId}/role`, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json',
